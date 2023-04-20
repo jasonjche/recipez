@@ -7,7 +7,7 @@
 	<ul class="list-inside list-disc text-lg">
 		{#each items as item}
 			<div class="flex items-center">
-				<input type="checkbox" id={item} class="mr-2" />
+				<input type="checkbox" id={item} class="form-checkbox h-5 w-5 text-green-600 rounded border-gray-300 mr-2" />
 				<label for={item} class="text-lg">{item}</label>
 			</div>
 		{/each}
