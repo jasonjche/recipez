@@ -26,7 +26,7 @@ RecipEZ is a personal project that I created to help make meal planning easier. 
 1. Clone this repository.
 2. Install dependencies with `npm install`.
 3. Start the development server with `npm run dev`.
-4. Navigate to `localhost:3000` in your web browser.
+4. Navigate to `localhost:5173` in your web browser.
 5. Enter one or more recipe URLs from Allrecipes.com in the provided text boxes.
 6. Click "Generate Grocery List" to create a grocery list based on the entered recipes.
 7. View the generated grocery list and print or save it for later use.
