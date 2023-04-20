@@ -1,5 +1,8 @@
 <script>
-  import "../app.css";
+	import '../app.css';
 </script>
 
+<svelte:head>
+	<title> RecipEZ </title>
+</svelte:head>
 <slot />
