@@ -60,8 +60,29 @@ async function fetchIngredients(url: string) {
 }
 
 function consolidateGroceryList(ingredientsList: string[]) {
-	// Here, you can implement a function to consolidate duplicate ingredients,
-	// combine quantities, or process the ingredients list in any other way you'd like.
-	// For now, we'll simply return the ingredients as-is.
-	return ingredientsList;
-}
+    const consolidatedList: { [key: string]: { quantity: number; unit: string } } = {};
+
+    ingredientsList.forEach(ingredient => {
+      const [quantity, unit, ...rest] = ingredient.split(' ');
+      const name = rest.join(' ');
+  
+      if (!consolidatedList[name]) {
+        consolidatedList[name] = {
+          quantity: parseFloat(quantity) || 0,
+          unit: unit || '',
+        };
+      } else {
+        if (unit === consolidatedList[name].unit) {
+          consolidatedList[name].quantity += parseFloat(quantity) || 0;
+        } else {
+          console.warn(`Different units for ${name}: ${unit} and ${consolidatedList[name].unit}. Values not combined.`);
+        }
+      }
+    });
+  
+    const formattedList = Object.entries(consolidatedList).map(([name, { quantity, unit }]) => {
+      return `${quantity} ${unit} ${name}`;
+    });
+  
+    return formattedList;
+  }
